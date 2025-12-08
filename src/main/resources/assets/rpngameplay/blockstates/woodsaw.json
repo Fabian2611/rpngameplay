@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "rpngameplay:block/woodsaw",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "rpngameplay:block/woodsaw"
+    },
+    "facing=south": {
+      "model": "rpngameplay:block/woodsaw",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "rpngameplay:block/woodsaw",
+      "y": 270
+    }
+  }
+}

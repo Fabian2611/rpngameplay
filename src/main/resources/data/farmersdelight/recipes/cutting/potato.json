@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "kitchen_grow:potato_slices"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

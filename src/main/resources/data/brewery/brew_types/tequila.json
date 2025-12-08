@@ -1,0 +1,14 @@
+{
+    "customLore": "rpn.brew.tequila.lore",
+    "customName": "rpn.brew.tequila.name",
+    "effects": [
+        {
+            "amplifier": 1,
+            "duration": 2400,
+            "effect": "effect.brewery.alcohol"
+        }
+    ],
+    "maxAlcoholLevel": 1,
+    "maxPurity": 4,
+    "tintColor": 14908443
+}

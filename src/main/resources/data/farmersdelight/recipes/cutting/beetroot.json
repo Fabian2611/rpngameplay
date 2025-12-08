@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:beetroot"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "rpngameplay:beetroot_slices"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

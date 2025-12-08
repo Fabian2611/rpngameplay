@@ -1,0 +1,8 @@
+{
+    "customLore": "rpn.brew.water.lore",
+    "customName": "rpn.brew.water.name",
+    "effects": [],
+    "maxAlcoholLevel": 1,
+    "maxPurity": 1,
+    "tintColor": 3575746
+}
