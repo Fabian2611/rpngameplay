@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:nether_brick"
+    },
+    "M": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_wheel",
+    "nbt": "{wheel:\"automobility:gilded\"}"
+  },
+  "acceptMirrored": false
+}

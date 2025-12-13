@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar_cane"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:powder_sugarcane",
+      "chance": 0.4
+    }
+  ],
+  "processingTime": 50
+}

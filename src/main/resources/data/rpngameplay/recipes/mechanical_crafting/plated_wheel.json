@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "tag": "minecraft:logs"
+    },
+    "M": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_wheel",
+    "nbt": "{wheel:\"automobility:plated\"}"
+  },
+  "acceptMirrored": false
+}

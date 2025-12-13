@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "refurbished_furniture:sea_salt"
+    },
+    {
+      "item": "meds_and_herbs:bottled_water"
+    },
+    {
+      "item": "rpngameplay:sulfuric_acid"
+    }
+  ],
+  "result": {
+    "item": "rpngameplay:hydrochloric_acid"
+  }
+}

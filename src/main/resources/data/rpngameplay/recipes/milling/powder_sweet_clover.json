@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:sweet_clover_flowers"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:powder_sweet_clover",
+      "chance": 0.4
+    }
+  ],
+  "processingTime": 50
+}

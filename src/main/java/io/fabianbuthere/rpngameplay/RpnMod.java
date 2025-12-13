@@ -1,6 +1,7 @@
 package io.fabianbuthere.rpngameplay;
 
 import com.mojang.logging.LogUtils;
+import com.github.minecraftschurlimods.bibliocraft.Bibliocraft;
 import io.fabianbuthere.rpngameplay.block.ModBlocks;
 import io.fabianbuthere.rpngameplay.block.entity.ModBlockEntities;
 import io.fabianbuthere.rpngameplay.item.ModCreativeModeTabs;
@@ -20,6 +21,7 @@ public class RpnMod
 
     public RpnMod(FMLJavaModLoadingContext context)
     {
+        new Bibliocraft(context);
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
 

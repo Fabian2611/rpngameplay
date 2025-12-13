@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rpngameplay:hydrochloric_acid"
+    },
+    {
+      "item": "rpngameplay:cocaine_leaf"
+    },
+    {
+      "item": "rpngameplay:cocaine_leaf"
+    },
+    {
+      "item": "rpngameplay:cocaine_leaf"
+    }
+  ],
+  "result": {
+    "item": "rpngameplay:cocaine"
+  }
+}

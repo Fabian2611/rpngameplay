@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "butcher:sulfuricacid"
+    }
+  ],
+  "result": {
+    "item": "rpngameplay:sulfuric_acid"
+  }
+}

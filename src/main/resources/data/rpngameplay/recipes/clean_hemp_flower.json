@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rpngameplay:hemp_flower"
+    },
+    {
+      "item": "rpngameplay:hemp_flower"
+    },
+    {
+      "item": "rpngameplay:hemp_flower"
+    },
+    {
+      "item": "meds_and_herbs:alcohol_ethanol"
+    }
+  ],
+  "result": {
+    "item": "rpngameplay:clean_hemp_flower",
+    "count": 3
+  }
+}

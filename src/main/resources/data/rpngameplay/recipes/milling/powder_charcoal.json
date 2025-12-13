@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:charcoal"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:powder_charcoal",
+      "chance": 0.4
+    }
+  ],
+  "processingTime": 50
+}

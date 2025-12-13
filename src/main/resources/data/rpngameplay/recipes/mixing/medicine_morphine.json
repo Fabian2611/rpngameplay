@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:extract_opium"
+    },
+    {
+      "item": "meds_and_herbs:alcohol_ethanol"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:medicine_morphine",
+      "count": 2
+    }
+  ],
+  "heatRequirement": "superheated"
+}

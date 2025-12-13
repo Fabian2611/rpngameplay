@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:powder_chamomile"
+    },
+    {
+      "item": "meds_and_herbs:empty_bottle_clean"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:extract_chamomile"
+    }
+  ],
+  "heatRequirement": "heated"
+}

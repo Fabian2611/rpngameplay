@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "rpngameplay:dried_cannabis_bud"
+    }
+  ],
+  "results": [
+    {
+      "item": "rpngameplay:grinded_cannabis"
+    }
+  ],
+  "processingTime": 50
+}

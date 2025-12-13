@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:bottled_hpp_blood"
+    },
+    {
+      "item": "meds_and_herbs:medicine_antidote"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:medicine_hpa"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

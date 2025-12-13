@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rpngameplay:clean_hemp_flower"
+    },
+    {
+      "item": "rpngameplay:grinded_cannabis"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "item": "rpngameplay:hemp_joint"
+  }
+}

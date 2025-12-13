@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    " RSR ",
+    "PPLPP",
+    " BOB "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "P": {
+      "tag": "forge:stone"
+    },
+    "B": {
+      "tag": "minecraft:logs"
+    },
+    "O": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_frame",
+    "nbt": "{frame:\"automobility:wooden_motorcar\"}"
+  },
+  "acceptMirrored": false
+}

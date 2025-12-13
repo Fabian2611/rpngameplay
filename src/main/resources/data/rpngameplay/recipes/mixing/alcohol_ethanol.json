@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:beveragebucket"
+    },
+    {
+      "item": "meds_and_herbs:empty_bottle_clean"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:alcohol_ethanol"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "M": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_wheel",
+    "nbt": "{wheel:\"automobility:street\"}"
+  },
+  "acceptMirrored": false
+}

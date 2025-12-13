@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:bottled_poison_blood"
+    },
+    {
+      "item": "meds_and_herbs:alcohol_ethanol"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:medicine_antidote"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

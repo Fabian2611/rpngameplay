@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:black_wool"
+    },
+    "M": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_wheel",
+    "nbt": "{wheel:\"automobility:tractor\"}"
+  },
+  "acceptMirrored": false
+}

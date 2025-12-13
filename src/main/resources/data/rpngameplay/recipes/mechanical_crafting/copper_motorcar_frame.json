@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    " RSR ",
+    "PPLPP",
+    " BOB "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "tag": "forge:stone"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "minecraft:copper_block"
+    },
+    "O": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_frame",
+    "nbt": "{frame:\"automobility:copper_motorcar\"}"
+  },
+  "acceptMirrored": false
+}

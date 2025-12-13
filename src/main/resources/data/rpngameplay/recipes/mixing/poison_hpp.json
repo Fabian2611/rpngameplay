@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:poison"
+    },
+    {
+      "item": "meds_and_herbs:belladonna_poison"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:poison_hpp",
+      "count": 2
+    }
+  ],
+  "heatRequirement": "superheated"
+}

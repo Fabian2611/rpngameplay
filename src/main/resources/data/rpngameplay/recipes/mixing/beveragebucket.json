@@ -1,0 +1,14 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:raw_beverage_bucket"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:beveragebucket"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

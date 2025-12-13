@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    " RSR ",
+    "PPLPP",
+    " BOB "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:nether_brick"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "O": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_frame",
+    "nbt": "{frame:\"automobility:golden_motorcar\"}"
+  },
+  "acceptMirrored": false
+}

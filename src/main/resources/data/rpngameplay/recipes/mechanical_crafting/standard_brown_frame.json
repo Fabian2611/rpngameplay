@@ -1,0 +1,30 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "RSR",
+    " L ",
+    "BOB"
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:stone"
+    },
+    "S": {
+      "item": "minecraft:brown_dye"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_frame",
+    "nbt": "{frame:\"automobility:standard_brown\"}"
+  },
+  "acceptMirrored": false
+}

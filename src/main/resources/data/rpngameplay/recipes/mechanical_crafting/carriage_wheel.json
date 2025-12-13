@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "tag": "minecraft:planks"
+    },
+    "M": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "automobility:automobile_wheel",
+    "nbt": "{wheel:\"automobility:carriage\"}"
+  },
+  "acceptMirrored": false
+}

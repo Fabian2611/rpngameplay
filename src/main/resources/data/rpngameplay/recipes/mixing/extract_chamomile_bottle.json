@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "meds_and_herbs:powder_chamomile"
+    },
+    {
+      "item": "meds_and_herbs:bottled_water"
+    }
+  ],
+  "results": [
+    {
+      "item": "meds_and_herbs:extract_chamomile"
+    }
+  ],
+  "heatRequirement": "heated"
+}
