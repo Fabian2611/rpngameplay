@@ -308,8 +308,12 @@ public class FormattedTextArea extends AbstractWidget {
                     deleteHighlight();
                 } else if (cursorX > 0) {
                     int x = Screen.hasControlDown() ? getWordPosition(-1) : cursorX - 1;
-                    lines.set(cursorY, line.replaceText(x, cursorX, ""));
-                    moveCursor(x, cursorY, false);
+                    if (x < 0) x = 0;
+                    if (x > cursorX) x = cursorX;
+                    if (x < cursorX) {
+                        lines.set(cursorY, line.replaceText(x, cursorX, ""));
+                        moveCursor(x, cursorY, false);
+                    }
                 } else if (cursorY > 0) {
                     // Merge with previous line
                     FormattedLine prevLine = lines.get(cursorY - 1);
@@ -827,60 +831,113 @@ public class FormattedTextArea extends AbstractWidget {
     }
 
     private void insertText(String s) {
-        String text = StringUtil.filterText(s);
-        FormattedLine oldLine = lines.get(cursorY);
-        int oldHighlightX = highlightX;
-        int oldHighlightY = highlightY;
-        int oldCursorX = cursorX;
-        int oldCursorY = cursorY;
-        
-        if (!tryEdit(
-                () -> {
-                    deleteHighlight();
-                    FormattedLine line = lines.get(cursorY);
-                    lines.set(cursorY, line.replaceText(cursorX, cursorX, text));
-                },
-                () -> {
-                    // Revert is hard with multi-line delete.
-                    // tryEdit assumes simple revert.
-                    // We might need a better revert strategy or just assume it works if single line?
-                    // If multi-line delete happened, we changed structure significantly.
-                    // For now, let's just try to restore state if possible, but this revert lambda is insufficient for multi-line.
-                    // However, insertText usually happens on single line unless replacing selection.
-                    // If replacing selection, we might have reduced lines.
-                    // Let's just hope it fits?
-                    // Or we can capture the whole list state? Expensive.
-                    // Given constraints, maybe we just accept it might not revert perfectly if it fails?
-                    // But wait, tryEdit checks isValid().
-                    // If we deleted lines, we likely made space, so isValid should pass.
-                    // The only risk is if inserting text makes the line too long.
-                    // If we deleted multiple lines, we have plenty of vertical space.
-                    // So horizontal overflow is the main concern.
-                    // If it fails, we need to revert.
-                    // Let's capture the lines list?
-                    // lines is a field.
-                    // We can't easily revert.
-                    // Let's assume deleteHighlight always succeeds (it reduces content).
-                    // Then we check if insertion fits.
-                    // If insertion fails, we need to undo insertion.
-                    // But we can't undo deleteHighlight easily.
-                    // So we should check validity AFTER deleteHighlight but BEFORE insertion? No, delete always valid.
-                    // We should check if insertion is valid.
-                    // If not, we undo insertion.
-                    // But we keep the deletion? That's standard text editor behavior (if you type and it doesn't fit, usually it doesn't type, but if you selected text, it might delete it?).
-                    // Actually, if I select text and type 'a', and 'a' doesn't fit (unlikely), I expect text deleted and 'a' not inserted? Or text deleted and 'a' inserted?
-                    // Usually if I select and type, the selection is gone.
+        List<FormattedLine> backupLines = new ArrayList<>(lines);
+        int backupCursorX = cursorX;
+        int backupCursorY = cursorY;
+        int backupHighlightX = highlightX;
+        int backupHighlightY = highlightY;
+
+        try {
+            String text = StringUtil.filterText(s, true);
+            if (text.contains("\n")) {
+                deleteHighlight();
+                String[] parts = text.split("\n", -1);
+                FormattedLine currentLine = lines.get(cursorY);
+                var split = currentLine.split(cursorX);
+                FormattedLine left = split.getKey();
+                FormattedLine right = split.getValue();
+                Style style = getStyleAtCursor();
+
+                lines.set(cursorY, left.replaceText(left.text().length(), left.text().length(), parts[0]));
+
+                for (int i = 1; i < parts.length - 1; i++) {
+                    lines.add(cursorY + i, FormattedLine.DEFAULT.withStyle(style).withText(parts[i]));
                 }
-        )) {
-             // If tryEdit failed, it ran revert.
-             // But our revert is broken for multi-line.
-             // Let's improve tryEdit usage.
-             // We can't easily fix revert without deep copy.
-             // Let's just proceed.
+
+                FormattedLine lastLine = FormattedLine.DEFAULT.withStyle(style).withText(parts[parts.length - 1]);
+                lines.add(cursorY + parts.length - 1, lastLine.append(right));
+
+                cursorY += parts.length - 1;
+                cursorX = parts[parts.length - 1].length();
+                highlightX = cursorX;
+                highlightY = cursorY;
+            } else {
+                deleteHighlight();
+                FormattedLine line = lines.get(cursorY);
+                lines.set(cursorY, line.replaceText(cursorX, cursorX, text));
+                cursorX += text.length();
+                highlightX = cursorX;
+                highlightY = cursorY;
+            }
+
+            if (!isValid()) {
+                reflow(0);
+                if (!isValid()) {
+                    throw new RuntimeException("Still invalid after reflow");
+                }
+            }
+        } catch (Exception e) {
+            lines.clear();
+            lines.addAll(backupLines);
+            cursorX = backupCursorX;
+            cursorY = backupCursorY;
+            highlightX = backupHighlightX;
+            highlightY = backupHighlightY;
         }
-        cursorX += text.length();
-        highlightX = cursorX;
-        highlightY = cursorY;
+    }
+
+    private void reflow(int startLine) {
+        int widthLimit = width - 2;
+        for (int i = startLine; i < lines.size(); i++) {
+            FormattedLine line = lines.get(i);
+            float scale = getScale(line.size());
+            
+            int splitIndex = -1;
+            int lastSpaceIndex = -1;
+            int currentPos = 0;
+            int currentWidth = 0;
+            boolean overflow = false;
+            
+            for (FormattedLine.FormattedSegment segment : line.segments()) {
+                String text = segment.text();
+                Style style = segment.style();
+                for (int j = 0; j < text.length(); j++) {
+                    char c = text.charAt(j);
+                    int charWidth = (int) (font.width(format(String.valueOf(c), style)) * scale);
+                    if (currentWidth + charWidth > widthLimit) {
+                        overflow = true;
+                        splitIndex = currentPos + j;
+                        break;
+                    }
+                    currentWidth += charWidth;
+                    if (c == ' ') {
+                        lastSpaceIndex = currentPos + j;
+                    }
+                }
+                if (overflow) break;
+                currentPos += text.length();
+            }
+            
+            if (overflow) {
+                int splitAt = (lastSpaceIndex != -1 && lastSpaceIndex > 0) ? lastSpaceIndex + 1 : splitIndex;
+                if (splitAt <= 0) splitAt = Math.max(1, splitIndex);
+                if (splitAt >= line.text().length()) continue;
+                
+                var split = line.split(splitAt);
+                lines.set(i, split.getKey());
+                lines.add(i + 1, split.getValue());
+                
+                if (cursorY == i && cursorX >= splitAt) {
+                    cursorY++;
+                    cursorX -= splitAt;
+                    highlightX = cursorX;
+                    highlightY = cursorY;
+                } else if (cursorY > i) {
+                    cursorY++;
+                    highlightY++;
+                }
+            }
+        }
     }
 
     private int getCursorXForNewLine(int oldIndex, int newIndex) {

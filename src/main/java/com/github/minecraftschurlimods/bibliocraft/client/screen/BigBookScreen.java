@@ -86,7 +86,7 @@ public class BigBookScreen extends Screen {
             BigBookInfo info = BigBookInfo.decode(stack.getTag());
             if (info != null) {
                 pages = new ArrayList<>(WrittenBigBookContent.decode(storage.getOrCreateBookContents(id)).pages());
-                currentPage = info.currentPage();
+                currentPage = Math.max(0, Math.min(info.currentPage(), pages.size() - 1));
                 writable = !stack.is(BCItems.WRITTEN_BIG_BOOK.get()) && lectern == null;
             }
             else
@@ -170,6 +170,19 @@ public class BigBookScreen extends Screen {
                 updateButtonVisibility();
                 updateTextArea();
             }, true));
+            addRenderableWidget(Button.builder(Component.literal("+"), $ -> {
+                if (pages.size() < 256) {
+                    if (currentPage >= 0 && currentPage < pages.size()) {
+                        pages.set(currentPage, textArea.getLines());
+                    }
+                    int index = Math.max(0, Math.min(currentPage, pages.size()));
+                    if (index < 0) index = 0;
+                    if (index > pages.size()) index = pages.size();
+                    pages.add(index, new ArrayList<>(List.of(FormattedLine.DEFAULT)));
+                    updateButtonVisibility();
+                    updateTextArea();
+                }
+            }).bounds(leftX + 95, BACKGROUND_HEIGHT - 32, 20, 20).build());
             updateButtonVisibility();
 
             // Formatting buttons
