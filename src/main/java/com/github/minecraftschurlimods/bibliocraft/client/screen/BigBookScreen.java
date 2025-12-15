@@ -22,6 +22,7 @@ import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -413,7 +414,10 @@ public class BigBookScreen extends Screen {
 
             BigBookInfo info = new BigBookInfo(currentPage,id);
             stack.setTag(info.encode());
-            CHANNEL.sendToServer(new BigBookSyncPacket(content, info, hand));
+            CompoundTag extraData = new CompoundTag();
+            extraData.put("info", info.encode());
+            extraData.putInt("hand", hand.ordinal());
+            BigBookPacketHandler.sendMultipart(content, extraData, 1);
         } else if (hand != null) {
             CHANNEL.sendToServer(new SetBigBookPageInLecternPacket(currentPage, Either.left(hand)));
         } else if (lectern != null) {
@@ -502,7 +506,10 @@ public class BigBookScreen extends Screen {
         newStack.setTag(info.addTag(stack.getTag()));
         storage.setBookContents(id, content.encode());
         player.setItemInHand(hand, newStack);
-        CHANNEL.sendToServer(new BigBookSignPacket(content, info, hand));
+        CompoundTag extraData = new CompoundTag();
+        extraData.put("info", info.encode());
+        extraData.putInt("hand", hand.ordinal());
+        BigBookPacketHandler.sendMultipart(content, extraData, 0);
         Objects.requireNonNull(minecraft).setScreen(null);
     }
 

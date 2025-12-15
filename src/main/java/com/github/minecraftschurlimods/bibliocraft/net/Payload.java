@@ -67,5 +67,12 @@ public class Payload {
                 BigBookResponsePacket::fromBytes,
                 BigBookResponsePacket::handle
         );
+        CHANNEL.registerMessage(
+                id++,
+                BigBookMultipartPacket.class,
+                BigBookMultipartPacket::toBytes,
+                BigBookMultipartPacket::fromBytes,
+                BigBookMultipartPacket::handle
+        );
     }
 }
