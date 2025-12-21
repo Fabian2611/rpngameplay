@@ -230,6 +230,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
 
         @Override
+        public JsonObject serializeRecipe() {
+            return json;
+        }
+
+        @Override
         public JsonObject serializeAdvancement() {
             return null;
         }

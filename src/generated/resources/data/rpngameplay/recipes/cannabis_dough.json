@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "item": "create:dough"
+    },
+    {
+      "item": "create:dough"
+    },
+    {
+      "item": "rpngameplay:cannabis_extract"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "rpngameplay:cannabis_dough"
+  }
+}

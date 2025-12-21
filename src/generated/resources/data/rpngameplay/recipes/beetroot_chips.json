@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "rpngameplay:beetroot_slices"
+  },
+  "result": "rpngameplay:beetroot_chips"
+}

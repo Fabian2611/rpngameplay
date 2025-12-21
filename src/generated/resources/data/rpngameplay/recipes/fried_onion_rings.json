@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "rpngameplay:onion_rings"
+  },
+  "result": "rpngameplay:fried_onion_rings"
+}

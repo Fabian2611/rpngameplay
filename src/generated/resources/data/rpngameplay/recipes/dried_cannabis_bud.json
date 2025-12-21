@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 400,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "rpngameplay:cannabis_bud"
+  },
+  "result": "rpngameplay:dried_cannabis_bud"
+}

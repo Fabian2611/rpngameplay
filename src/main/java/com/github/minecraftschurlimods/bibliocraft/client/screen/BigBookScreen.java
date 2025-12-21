@@ -490,7 +490,7 @@ public class BigBookScreen extends Screen {
             if (lines.stream().anyMatch(e -> e != FormattedLine.DEFAULT)) break;
             pages.remove(i);
         }
-        currentPage = Math.min(Math.max(currentPage, 0), pages.size() - 1);
+        currentPage = pages.isEmpty() ? 0 : Math.min(Math.max(currentPage, 0), pages.size() - 1);
     }
 
     private void finalizeBook() {

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "rpngameplay:cannabis_plant_seed"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "rpngameplay:hemp_plant_seed"
+  }
+}

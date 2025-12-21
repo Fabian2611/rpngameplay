@@ -6,6 +6,7 @@ import io.fabianbuthere.rpngameplay.block.ModBlocks;
 import io.fabianbuthere.rpngameplay.block.entity.ModBlockEntities;
 import io.fabianbuthere.rpngameplay.item.ModCreativeModeTabs;
 import io.fabianbuthere.rpngameplay.item.ModItems;
+import io.fabianbuthere.rpngameplay.screen.ModMenuTypes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -25,10 +26,10 @@ public class RpnMod
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
-
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);

@@ -11,6 +11,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import net.minecraft.world.effect.MobEffects;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RpnMod.MOD_ID);
 
@@ -98,7 +100,8 @@ public class ModItems {
     public static final RegistryObject<Item> RING = ITEMS.register("ring",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1)));
 
-    
+    public static final RegistryObject<Item> EMPTY_SYRINGE = ITEMS.register("empty_syringe",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

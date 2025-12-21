@@ -47,6 +47,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.NETTLE_CHIPS.get());
                         pOutput.accept(ModItems.FISH_AND_CHIPS.get());
                         pOutput.accept(ModItems.RING.get());
+                        pOutput.accept(ModItems.EMPTY_SYRINGE.get());
 
                         // Blocks
                         pOutput.accept(ModBlocks.WOODSAW.get());
