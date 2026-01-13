@@ -30,7 +30,7 @@ public class ServerEventHandling {
         if (!event.getEntity().getTags().contains("rpn.license_cars")) return;
 
         entity.setCustomName(stack.getHoverName());
-        if (event.getEntity().getAbilities().instabuild) stack.shrink(1);
+        if (!event.getEntity().getAbilities().instabuild) stack.shrink(1);
         event.setCanceled(true);
     }
 }
