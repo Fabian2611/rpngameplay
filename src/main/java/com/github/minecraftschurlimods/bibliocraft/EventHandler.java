@@ -51,7 +51,7 @@ public final class EventHandler {
 //        modBus.addListener(EventHandler::registerPayloadHandlers);
         modBus.addListener(EventHandler::addPackFinders);
         Payload.registerMesssages();
-        MinecraftForge.EVENT_BUS.addListener(EventHandler::rightClickBlock);
+//        MinecraftForge.EVENT_BUS.addListener(EventHandler::rightClickBlock);
         if (ModList.get().isLoaded("create_enchantment_industry")) {
 //            CreateEnchantmentIndustryCompat.load(MinecraftForge.EVENT_BUS);
         }

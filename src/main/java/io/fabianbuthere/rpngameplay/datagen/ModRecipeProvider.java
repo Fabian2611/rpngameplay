@@ -37,12 +37,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shapeless(pWriter, "butcher_sulfuricacid", "butcher:sulfuricacid", 1, "rpngameplay:sulfuric_acid");
         shapeless(pWriter, "sulfuric_acid_crafting", ModItems.SULFURIC_ACID.get(), 1, "meds_and_herbs:bottled_water", "minecraft:gunpowder", "minecraft:lava_bucket");
         shapeless(pWriter, "cocaine", ModItems.COCAINE.get(), 1, "rpngameplay:hydrochloric_acid", "rpngameplay:cocaine_leaf", "rpngameplay:cocaine_leaf", "rpngameplay:cocaine_leaf");
-        
+
         campfire(pWriter, "dried_cannabis_bud", ModItems.DRIED_CANNABIS_BUD.get(), "rpngameplay:cannabis_bud", 400);
-        
+
         // Create Milling
         milling(pWriter, "grinded_cannabis", ModItems.GRINDED_CANNABIS.get(), 1, "rpngameplay:dried_cannabis_bud");
-        
+
         shapeless(pWriter, "cannabis_extract", ModItems.CANNABIS_EXTRACT.get(), 1, "rpngameplay:grinded_cannabis", "rpngameplay:grinded_cannabis", "rpngameplay:grinded_cannabis", "meds_and_herbs:alcohol_ethanol");
         shapeless(pWriter, "clean_hemp_flower", ModItems.CLEAN_HEMP_FLOWER.get(), 3, "rpngameplay:hemp_flower", "rpngameplay:hemp_flower", "rpngameplay:hemp_flower", "meds_and_herbs:alcohol_ethanol");
         shapeless(pWriter, "hemp_joint", ModItems.HEMP_JOINT.get(), 1, "rpngameplay:clean_hemp_flower", "rpngameplay:grinded_cannabis", "minecraft:paper");
@@ -51,14 +51,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shapeless(pWriter, "cocaine_plant_seed_crafting", ModItems.COCAINE_SEEDS.get(), 8, "minecraft:pumpkin_seeds", "minecraft:pumpkin_seeds", "minecraft:pumpkin_seeds", "minecraft:pumpkin_seeds", "minecraft:wheat_seeds", "minecraft:wheat_seeds", "minecraft:wheat_seeds", "minecraft:wheat_seeds", "meds_and_herbs:opium_seeds");
         shapeless(pWriter, "cannabis_dough", ModItems.CANNABIS_DOUGH.get(), 3, "create:dough", "create:dough", "create:dough", "rpngameplay:cannabis_extract");
         shapeless(pWriter, "fingerprint_kit", ModItems.FINGERPRINT_KIT.get(), 1, "minecraft:brush", "minecraft:paper");
-        
+
         smelting(pWriter, "cannabis_bread", ModItems.CANNABIS_BREAD.get(), "rpngameplay:cannabis_dough");
-        
+
         campfire(pWriter, "vegetable_chips", ModItems.VEGETABLE_CHIPS.get(), "rpngameplay:carrot_slices", 100);
         campfire(pWriter, "beetroot_chips", ModItems.BEETROOT_CHIPS.get(), "rpngameplay:beetroot_slices", 100);
         campfire(pWriter, "fried_onion_rings", ModItems.FRIED_ONION_RINGS.get(), "rpngameplay:onion_rings", 100);
         campfire(pWriter, "nettle_chips", ModItems.NETTLE_CHIPS.get(), "farmersdelight:straw", 100);
-        
+
         shapeless(pWriter, "fish_and_chips", ModItems.FISH_AND_CHIPS.get(), 1, "minecraft:cooked_cod", "rpngameplay:vegetable_chips");
     }
 
@@ -82,7 +82,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // Assuming standard naming convention modid:woodtype_planks
         recipesToRemove.add(new ResourceLocation("quark", "ancient_planks"));
         recipesToRemove.add(new ResourceLocation("quark", "azalea_planks"));
-        
+
         // Add any other known IDs here if they differ from standard naming
 
         for (ResourceLocation id : recipesToRemove) {
@@ -101,7 +101,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         if (logId.contains("cherry_log")) return "minecraft:cherry_planks";
         if (logId.contains("crimson_stem")) return "minecraft:crimson_planks";
         if (logId.contains("warped_stem")) return "minecraft:warped_planks";
-        
+
         String[] parts = logId.split(":");
         String modId = parts[0];
         String woodType = parts[1].replace("stripped_", "").replace("_log", "").replace("_stem", "");
@@ -117,19 +117,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         condition.addProperty("type", "forge:false");
         conditions.add(condition);
         json.add("conditions", conditions);
-        
+
         pWriter.accept(new RawRecipe(id, json));
     }
 
     private void shapeless(Consumer<FinishedRecipe> pWriter, String name, Object result, int count, String... ingredients) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shapeless");
-        
+
         JsonObject resultObj = new JsonObject();
         resultObj.addProperty("item", getItemId(result));
         if (count > 1) resultObj.addProperty("count", count);
         json.add("result", resultObj);
-        
+
         JsonArray ingredientsArr = new JsonArray();
         for (String ing : ingredients) {
             JsonObject ingObj = new JsonObject();
@@ -141,7 +141,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ingredientsArr.add(ingObj);
         }
         json.add("ingredients", ingredientsArr);
-        
+
         pWriter.accept(new RawRecipe(new ResourceLocation(RpnMod.MOD_ID, name), json));
     }
 
@@ -150,15 +150,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         json.addProperty("type", "minecraft:smelting");
         json.addProperty("cookingtime", 200);
         json.addProperty("experience", 0.1);
-        
+
         JsonObject ingObj = new JsonObject();
         ingObj.addProperty("item", ingredient);
         json.add("ingredient", ingObj);
-        
+
         JsonObject resultObj = new JsonObject();
         resultObj.addProperty("item", getItemId(result));
         json.addProperty("result", resultObj.get("item").getAsString());
-        
+
         pWriter.accept(new RawRecipe(new ResourceLocation(RpnMod.MOD_ID, name), json));
     }
 
@@ -167,34 +167,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         json.addProperty("type", "minecraft:campfire_cooking");
         json.addProperty("cookingtime", time);
         json.addProperty("experience", 0.1);
-        
+
         JsonObject ingObj = new JsonObject();
         ingObj.addProperty("item", ingredient);
         json.add("ingredient", ingObj);
-        
+
         json.addProperty("result", getItemId(result));
-        
+
         pWriter.accept(new RawRecipe(new ResourceLocation(RpnMod.MOD_ID, name), json));
     }
-    
+
     private void milling(Consumer<FinishedRecipe> pWriter, String name, Object result, int count, String ingredient) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "create:milling");
         json.addProperty("processingTime", 50);
-        
+
         JsonArray ingredientsArr = new JsonArray();
         JsonObject ingObj = new JsonObject();
         ingObj.addProperty("item", ingredient);
         ingredientsArr.add(ingObj);
         json.add("ingredients", ingredientsArr);
-        
+
         JsonArray resultsArr = new JsonArray();
         JsonObject resObj = new JsonObject();
         resObj.addProperty("item", getItemId(result));
         if (count > 1) resObj.addProperty("count", count);
         resultsArr.add(resObj);
         json.add("results", resultsArr);
-        
+
         pWriter.accept(new RawRecipe(new ResourceLocation(RpnMod.MOD_ID, name), json));
     }
 
