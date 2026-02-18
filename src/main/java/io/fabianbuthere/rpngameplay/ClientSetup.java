@@ -9,6 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = RpnMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetup {
@@ -16,7 +17,7 @@ public class ClientSetup {
     public static void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ModItems.ITEMS.getEntries().stream()
-                    .map(net.minecraftforge.registries.RegistryObject::get)
+                    .map(RegistryObject::get)
                     .filter(item -> item instanceof ExtractItem)
                     .forEach(item -> {
                         ItemProperties.register(item, new ResourceLocation(RpnMod.MOD_ID, "pulls"),

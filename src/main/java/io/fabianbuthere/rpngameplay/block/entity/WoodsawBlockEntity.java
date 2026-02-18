@@ -232,12 +232,12 @@ public class WoodsawBlockEntity extends BlockEntity implements MenuProvider, Con
         return modId + ":" + woodType + "_planks";
     }
 
-    private void woodsawRecipe(String inputId, int inAmount, String fuelId, int fuelAmount, String outputId, int outAmount) {
+    private void woodsawRecipe(String inputId, int inAmount, String[] fuelIds, int fuelAmount, String outputId, int outAmount) {
         // Search for fuel
         int fuelSlot = -1;
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             ItemStack stack = itemHandler.getStackInSlot(i);
-            if (isItem(stack, fuelId) && stack.getCount() >= fuelAmount) {
+            if (isAnyItem(stack, fuelIds) && stack.getCount() >= fuelAmount) {
                 fuelSlot = i;
                 break;
             }
@@ -275,15 +275,20 @@ public class WoodsawBlockEntity extends BlockEntity implements MenuProvider, Con
         return loc != null && loc.toString().equals(id);
     }
 
-    private void checkWoodsawRecipe(WoodsawBlockEntity entity) {
-        // This runs every tick on server
-        // We iterate through logs and try to craft
-        // Note: In a real mod, you'd probably want to cache recipes or check only when inventory changes
-        // But following the logic provided:
+    private boolean isAnyItem(ItemStack stack, String[] ids) {
+        net.minecraft.resources.ResourceLocation loc = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        if (loc == null) return false;
+        String itemId = loc.toString();
+        for (String id : ids) {
+            if (itemId.equals(id)) return true;
+        }
+        return false;
+    }
 
+    private void checkWoodsawRecipe(WoodsawBlockEntity entity) {
         for (String log : LOG_LIST) {
             String plank = getPlankFromLog(log);
-            woodsawRecipe(log, 6, "minecraft:coal", 1, plank, 4);
+            woodsawRecipe(log, 6, new String[]  {"minecraft:coal", "minecraft:charcoal"}, 1, plank, 4);
         }
     }
 }

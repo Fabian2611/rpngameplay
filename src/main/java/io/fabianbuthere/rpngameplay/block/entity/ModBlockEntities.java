@@ -17,6 +17,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(WoodsawBlockEntity::new,
                             ModBlocks.WOODSAW.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<FilmShelfBlockEntity>> FILM_SHELF_BE =
+            BLOCK_ENTITIES.register("film_shelf_be", () ->
+                    BlockEntityType.Builder.of(FilmShelfBlockEntity::new,
+                            ModBlocks.FILM_SHELF.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

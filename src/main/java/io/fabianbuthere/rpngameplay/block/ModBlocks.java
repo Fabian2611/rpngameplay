@@ -1,6 +1,7 @@
 package io.fabianbuthere.rpngameplay.block;
 
 import io.fabianbuthere.rpngameplay.RpnMod;
+import io.fabianbuthere.rpngameplay.block.custom.*;
 import io.fabianbuthere.rpngameplay.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -10,10 +11,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import io.fabianbuthere.rpngameplay.block.custom.CannabisCropBlock;
-import io.fabianbuthere.rpngameplay.block.custom.CocaineCropBlock;
-import io.fabianbuthere.rpngameplay.block.custom.HempCropBlock;
-import io.fabianbuthere.rpngameplay.block.custom.WoodsawBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -34,6 +31,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> HEMP_PLANT = registerBlockWithoutItem("hemp_plant",
             () -> new HempCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+    public static final RegistryObject<Block> FILM_SHELF = registerBlock("film_shelf",
+            () -> new FilmShelfBlock(BlockBehaviour.Properties.copy(Blocks.CHISELED_BOOKSHELF).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -1,1 +1,3 @@
-// 1.20.1	2025-12-21T15:35:12.967983636	Tags for minecraft:item mod id rpngameplay
+// 1.20.1	2026-01-20T19:49:15.217108634	Tags for minecraft:item mod id rpngameplay
+438366bbbe0e4fd901f734112aa82bad79ab68ed data/minecraft/tags/items/bookshelf_books.json
+17ef511b46fe654a2876d0dc0dae3004977a54ae data/rpngameplay/tags/items/film_shelf_items.json

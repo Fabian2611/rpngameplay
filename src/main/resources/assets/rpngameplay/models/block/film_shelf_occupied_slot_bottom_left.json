@@ -1,0 +1,6 @@
+{
+  "parent": "rpngameplay:block/template_chiseled_bookshelf_slot_bottom_left",
+  "textures": {
+    "texture": "rpngameplay:block/film_shelf_occupied"
+  }
+}

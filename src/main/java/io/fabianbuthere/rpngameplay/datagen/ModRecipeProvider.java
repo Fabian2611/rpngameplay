@@ -3,12 +3,19 @@ package io.fabianbuthere.rpngameplay.datagen;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.fabianbuthere.rpngameplay.RpnMod;
+import io.fabianbuthere.rpngameplay.block.ModBlocks;
 import io.fabianbuthere.rpngameplay.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -60,6 +67,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         campfire(pWriter, "nettle_chips", ModItems.NETTLE_CHIPS.get(), "farmersdelight:straw", 100);
 
         shapeless(pWriter, "fish_and_chips", ModItems.FISH_AND_CHIPS.get(), 1, "minecraft:cooked_cod", "rpngameplay:vegetable_chips");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FILM_SHELF.get())
+                .define('#', ItemTags.PLANKS)
+                .define('S', Items.IRON_NUGGET)
+                .pattern("###")
+                .pattern("SSS")
+                .pattern("###")
+                .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
+                .save(pWriter);
     }
 
     private void removePlankRecipes(Consumer<FinishedRecipe> pWriter) {
@@ -78,12 +94,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipesToRemove.add(new ResourceLocation("minecraft", "warped_planks"));
         recipesToRemove.add(new ResourceLocation("minecraft", "bamboo_planks"));
 
-        // Modded (Quark)
-        // Assuming standard naming convention modid:woodtype_planks
         recipesToRemove.add(new ResourceLocation("quark", "ancient_planks"));
         recipesToRemove.add(new ResourceLocation("quark", "azalea_planks"));
-
-        // Add any other known IDs here if they differ from standard naming
 
         for (ResourceLocation id : recipesToRemove) {
             disableRecipe(pWriter, id);

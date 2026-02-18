@@ -51,6 +51,7 @@ public class ModCreativeModeTabs {
 
                         // Blocks
                         pOutput.accept(ModBlocks.WOODSAW.get());
+                        pOutput.accept(ModBlocks.FILM_SHELF.get());
                     })
                     .build());
 

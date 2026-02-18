@@ -35,6 +35,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         LootItemCondition.Builder hempCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HEMP_PLANT.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HempCropBlock.AGE, 2));
         this.add(ModBlocks.HEMP_PLANT.get(), createCropDrops(ModBlocks.HEMP_PLANT.get(), ModItems.HEMP_FLOWER.get(), ModItems.HEMP_SEEDS.get(), hempCondition));
+
+        dropSelf(ModBlocks.FILM_SHELF.get());
     }
 
     @Override
