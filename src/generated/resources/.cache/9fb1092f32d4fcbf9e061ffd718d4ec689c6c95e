@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-20T19:49:15.216257023	Recipes
+// 1.20.1	2026-02-18T16:11:29.530060804	Recipes
 fffe2f3f76c1c290262ae9082671f535731fca8b data/kitchen_grow/recipes/potato_chips_from_smelting.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/kitchen_grow/recipes/potato_chips_from_smoking.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/lightmanscurrency/recipes/coinmint.json
@@ -17,7 +17,10 @@ fffe2f3f76c1c290262ae9082671f535731fca8b data/minecraft/recipes/warped_planks.js
 fffe2f3f76c1c290262ae9082671f535731fca8b data/quark/recipes/ancient_planks.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/quark/recipes/azalea_planks.json
 2a53a69bb4d2525fd15d63304222ef794abe129d data/rpngameplay/advancements/recipes/misc/film_shelf.json
+75d187fe4140baffe378e3ab2878308485791220 data/rpngameplay/advancements/recipes/tools/black_gloves.json
+1c7f9a4e57c7a41593fe46b53c9302d1a0df0091 data/rpngameplay/advancements/recipes/tools/forensic_gloves.json
 bfd3dd692d4121899a90ef7dbf4b03c281b0eb1d data/rpngameplay/recipes/beetroot_chips.json
+42bb49a7fe675f79dcb987260d9280e74fc927af data/rpngameplay/recipes/black_gloves.json
 eaddf7438eddfac8729fe7a1de92f4c2b11fade6 data/rpngameplay/recipes/butcher_sulfuricacid.json
 984732007d3e130f1e4179985e69d1162bdf2d16 data/rpngameplay/recipes/cannabis_bread.json
 efba7e7f7f91d6a2bd2339a9a9b4b4d685a654f9 data/rpngameplay/recipes/cannabis_dough.json
@@ -30,6 +33,7 @@ c3be535e28fac2fecbbb21dbd8a78a688a2d5219 data/rpngameplay/recipes/cocaine_plant_
 5d3aacdd948403465670fa0185433e78d37c8925 data/rpngameplay/recipes/film_shelf.json
 900210e72b33461982c509eb6a52b5b3cddc2788 data/rpngameplay/recipes/fingerprint_kit.json
 e832e3c82da2a8c4d1af253ff0e9909fa16b63bb data/rpngameplay/recipes/fish_and_chips.json
+d6c64c5fe08122535138b16a0d6459d7962b85a7 data/rpngameplay/recipes/forensic_gloves.json
 e1792e739ecfa8d676bfc0c780f39a26d30cbfb4 data/rpngameplay/recipes/fried_onion_rings.json
 3c7c50d02981c1767f0c923d52a9cb27da072ffa data/rpngameplay/recipes/grinded_cannabis.json
 05973a7561f4a6fbb77335170575a6edec916d50 data/rpngameplay/recipes/hemp_joint.json

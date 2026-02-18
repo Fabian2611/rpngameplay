@@ -76,6 +76,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
                 .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.FORENSIC_GLOVES.get())
+                .pattern(" L ")
+                .pattern("LDL")
+                .pattern(" F ")
+                .define('L', Items.LEATHER)
+                .define('D', Items.WHITE_DYE)
+                .define('F', Items.FEATHER)
+                .unlockedBy("has_leather", has(Items.LEATHER))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.BLACK_GLOVES.get())
+                .pattern(" L ")
+                .pattern("LDL")
+                .pattern(" F ")
+                .define('L', Items.LEATHER)
+                .define('D', Items.BLACK_DYE)
+                .define('F', Items.FEATHER)
+                .unlockedBy("has_leather", has(Items.LEATHER))
+                .save(pWriter);
     }
 
     private void removePlankRecipes(Consumer<FinishedRecipe> pWriter) {

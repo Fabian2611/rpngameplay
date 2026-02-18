@@ -54,5 +54,8 @@
     "rpn.brew.pumpkin_soup.lore": "Eine warme und tröstliche Suppe aus Kürbissen.",
     "rpn.brew.pumpkin_soup.name": "Kürbissuppe",
     "rpn.brew.whiskey.lore": "Ein klassisches Destillat mit reichem Geschmack.",
-    "rpn.brew.whiskey.name": "Whiskey"
+    "rpn.brew.whiskey.name": "Whiskey",
+    "item.forensics.black_gloves": "Schwarze Handschuhe",
+    "item.forensics.forensic_gloves": "Nitrilhandschuhe",
+    "block.rpngameplay.film_shelf": "Filmregal"
 }

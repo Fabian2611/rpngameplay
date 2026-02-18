@@ -18,6 +18,7 @@
     "block.rpngameplay.cannabis_plant": "Cannabis Plant",
     "item.rpngameplay.cannabis_plant_seed": "Cannabis Seeds",
     "block.rpngameplay.hemp_plant": "Hemp Plant",
+    "block.rpngameplay.film_shelf": "Film Shelf",
     "item.rpngameplay.hemp_plant_seed": "Hemp Seeds",
     "item.rpngameplay.cannabis_dough": "Cannabis Dough",
     "item.rpngameplay.cannabis_bread": "Cannabis Bread",
@@ -55,5 +56,7 @@
     "rpn.brew.pumpkin_soup.lore": "A warm and comforting soup made from pumpkins.",
     "rpn.brew.pumpkin_soup.name": "Pumpkin Soup",
     "rpn.brew.whiskey.lore": "A classic distilled spirit with a rich flavor.",
-    "rpn.brew.whiskey.name": "Whiskey"
+    "rpn.brew.whiskey.name": "Whiskey",
+    "item.forensics.black_gloves": "Black Gloves",
+    "item.forensics.forensic_gloves": "Forensic Gloves"
 }

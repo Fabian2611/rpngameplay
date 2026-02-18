@@ -103,6 +103,12 @@ public class ModItems {
     public static final RegistryObject<Item> EMPTY_SYRINGE = ITEMS.register("empty_syringe",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> FORENSIC_GLOVES = ITEMS.register("forensic_gloves",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> BLACK_GLOVES = ITEMS.register("black_gloves",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
