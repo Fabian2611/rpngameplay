@@ -1,0 +1,19 @@
+{
+    "customLore": "rpn.brew.pina_colada.lore",
+    "customName": "rpn.brew.pina_colada.name",
+    "effects": [
+        {
+            "amplifier": 3,
+            "duration": 6000,
+            "effect": "effect.brewery.alcohol"
+        },
+        {
+          "amplifier": 1,
+          "duration": 1200,
+          "effect": "effect.minecraft.saturation"
+        }
+    ],
+    "maxAlcoholLevel": 1,
+    "maxPurity": 8,
+    "tintColor": 16774302
+}
