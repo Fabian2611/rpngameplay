@@ -10,10 +10,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class SafeLocksTab {
     @SubscribeEvent
     public static void buildTab(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == melonslise.locks.common.init.LocksItems.TAB.getKey()) {
-            for (RegistryObject<Item> entry : melonslise.locks.common.init.LocksItems.ITEMS.getEntries()) {
-                entry.ifPresent(event::accept);
-            }
-        }
+//        if (event.getTabKey() == melonslise.locks.common.init.LocksItems.TAB.getKey()) {
+//            for (RegistryObject<Item> entry : melonslise.locks.common.init.LocksItems.ITEMS.getEntries()) {
+//                entry.ifPresent(event::accept);
+//            }
+//        }
     }
 }

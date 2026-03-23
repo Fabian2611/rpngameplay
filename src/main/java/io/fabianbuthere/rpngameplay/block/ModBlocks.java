@@ -35,6 +35,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> FILM_SHELF = registerBlock("film_shelf",
             () -> new FilmShelfBlock(BlockBehaviour.Properties.copy(Blocks.CHISELED_BOOKSHELF).noOcclusion()));
 
+    public static final RegistryObject<Block> CABLE = registerBlock("cable",
+            () -> new CableBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().strength(1.0f, 3.0f)));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

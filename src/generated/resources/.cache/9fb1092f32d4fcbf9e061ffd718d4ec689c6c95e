@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-18T16:11:29.530060804	Recipes
+// 1.20.1	2026-03-23T17:58:17.570954712	Recipes
 fffe2f3f76c1c290262ae9082671f535731fca8b data/kitchen_grow/recipes/potato_chips_from_smelting.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/kitchen_grow/recipes/potato_chips_from_smoking.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/lightmanscurrency/recipes/coinmint.json
@@ -17,11 +17,13 @@ fffe2f3f76c1c290262ae9082671f535731fca8b data/minecraft/recipes/warped_planks.js
 fffe2f3f76c1c290262ae9082671f535731fca8b data/quark/recipes/ancient_planks.json
 fffe2f3f76c1c290262ae9082671f535731fca8b data/quark/recipes/azalea_planks.json
 2a53a69bb4d2525fd15d63304222ef794abe129d data/rpngameplay/advancements/recipes/misc/film_shelf.json
+b18bbb816f9e88811656d61e8c83f66872c7a0c6 data/rpngameplay/advancements/recipes/redstone/cable.json
 75d187fe4140baffe378e3ab2878308485791220 data/rpngameplay/advancements/recipes/tools/black_gloves.json
 1c7f9a4e57c7a41593fe46b53c9302d1a0df0091 data/rpngameplay/advancements/recipes/tools/forensic_gloves.json
 bfd3dd692d4121899a90ef7dbf4b03c281b0eb1d data/rpngameplay/recipes/beetroot_chips.json
 42bb49a7fe675f79dcb987260d9280e74fc927af data/rpngameplay/recipes/black_gloves.json
 eaddf7438eddfac8729fe7a1de92f4c2b11fade6 data/rpngameplay/recipes/butcher_sulfuricacid.json
+aa62fc2f018829fb39d9568f281a33d519ff6671 data/rpngameplay/recipes/cable.json
 984732007d3e130f1e4179985e69d1162bdf2d16 data/rpngameplay/recipes/cannabis_bread.json
 efba7e7f7f91d6a2bd2339a9a9b4b4d685a654f9 data/rpngameplay/recipes/cannabis_dough.json
 02ec7eda7338caa7e8bec76bb23086e0fb2b1146 data/rpngameplay/recipes/cannabis_extract.json

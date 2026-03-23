@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "   ",
+    "NIN",
+    "   "
+  ],
+  "result": {
+    "count": 8,
+    "item": "rpngameplay:cable"
+  },
+  "show_notification": true
+}

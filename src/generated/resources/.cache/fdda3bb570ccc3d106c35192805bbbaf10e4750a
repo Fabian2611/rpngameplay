@@ -1,1 +1,3 @@
-// 1.20.1	2025-12-21T15:35:12.961146078	Tags for minecraft:block mod id rpngameplay
+// 1.20.1	2026-03-23T17:58:17.568312963	Tags for minecraft:block mod id rpngameplay
+5fbe1bbb8062bba173695f971762b52e309eb01f data/minecraft/tags/blocks/mineable/pickaxe.json
+5fbe1bbb8062bba173695f971762b52e309eb01f data/minecraft/tags/blocks/needs_iron_tool.json

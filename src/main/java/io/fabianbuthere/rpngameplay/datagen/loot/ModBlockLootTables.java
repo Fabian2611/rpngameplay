@@ -37,6 +37,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.HEMP_PLANT.get(), createCropDrops(ModBlocks.HEMP_PLANT.get(), ModItems.HEMP_FLOWER.get(), ModItems.HEMP_SEEDS.get(), hempCondition));
 
         dropSelf(ModBlocks.FILM_SHELF.get());
+
+        dropSelf(ModBlocks.CABLE.get());
     }
 
     @Override
