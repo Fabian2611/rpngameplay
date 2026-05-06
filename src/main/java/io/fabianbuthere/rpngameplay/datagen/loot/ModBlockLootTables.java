@@ -8,9 +8,18 @@ import io.fabianbuthere.rpngameplay.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -23,22 +32,28 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.WOODSAW.get());
+        this.dropSelf(ModBlocks.FILM_SHELF.get());
+        this.dropSelf(ModBlocks.CABLE.get());
 
-        LootItemCondition.Builder cocaineCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.COCAINE_PLANT.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaineCropBlock.AGE, 3));
-        this.add(ModBlocks.COCAINE_PLANT.get(), createCropDrops(ModBlocks.COCAINE_PLANT.get(), ModItems.COCAINE_LEAF.get(), ModItems.COCAINE_SEEDS.get(), cocaineCondition));
+        this.add(ModBlocks.COCAINE_PLANT.get(), createNoSeedsDrop(ModBlocks.COCAINE_PLANT.get(), ModItems.COCAINE_LEAF.get(), CocaineCropBlock.AGE, 3));
 
-        LootItemCondition.Builder cannabisCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.CANNABIS_PLANT.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CannabisCropBlock.AGE, 3));
-        this.add(ModBlocks.CANNABIS_PLANT.get(), createCropDrops(ModBlocks.CANNABIS_PLANT.get(), ModItems.CANNABIS_BUD.get(), ModItems.CANNABIS_SEEDS.get(), cannabisCondition));
+        this.add(ModBlocks.CANNABIS_PLANT.get(), createNoSeedsDrop(ModBlocks.CANNABIS_PLANT.get(), ModItems.CANNABIS_BUD.get(), CannabisCropBlock.AGE, 3));
 
-        LootItemCondition.Builder hempCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HEMP_PLANT.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HempCropBlock.AGE, 2));
-        this.add(ModBlocks.HEMP_PLANT.get(), createCropDrops(ModBlocks.HEMP_PLANT.get(), ModItems.HEMP_FLOWER.get(), ModItems.HEMP_SEEDS.get(), hempCondition));
+        this.add(ModBlocks.HEMP_PLANT.get(), createNoSeedsDrop(ModBlocks.HEMP_PLANT.get(), ModItems.HEMP_FLOWER.get(), HempCropBlock.AGE, 2));
+    }
 
-        dropSelf(ModBlocks.FILM_SHELF.get());
+    protected LootTable.Builder createNoSeedsDrop(Block block, Item item, IntegerProperty ageProperty, int maxAge) {
+        LootItemCondition.Builder isMaxAge = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ageProperty, maxAge));
 
-        dropSelf(ModBlocks.CABLE.get());
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .when(isMaxAge)
+                        .add(LootItem.lootTableItem(item)
+                                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 3.0F)))
+                        )
+                );
     }
 
     @Override

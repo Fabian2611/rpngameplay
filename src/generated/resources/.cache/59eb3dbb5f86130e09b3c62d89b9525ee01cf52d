@@ -1,7 +1,7 @@
-// 1.20.1	2026-03-23T17:58:17.570363566	Loot Tables
+// 1.20.1	2026-05-06T15:06:34.797448605	Loot Tables
 3af85d50028245eecea86f4a2ef662a175dfacfc data/rpngameplay/loot_tables/blocks/cable.json
-e715b7bde2ddf66dc83cf7fdf9a8f424237536d2 data/rpngameplay/loot_tables/blocks/cannabis_plant.json
-556f7a9d649b65a2df1db66c5495ec0be1d8753b data/rpngameplay/loot_tables/blocks/cocaine_plant.json
+42cba4e80dab89133b8ecdda272e656c9963c5c1 data/rpngameplay/loot_tables/blocks/cannabis_plant.json
+2f7cee0b2924b6be5e05cf85ed3874c753f5cacd data/rpngameplay/loot_tables/blocks/cocaine_plant.json
 e6e524473a2579993caf025d4d82df68a852197d data/rpngameplay/loot_tables/blocks/film_shelf.json
-32eff5d73b4c727a8448c3e8da5f4ad1528ee9ba data/rpngameplay/loot_tables/blocks/hemp_plant.json
+a32a735cc0fdc52faab71ad5e0762222ca1969a4 data/rpngameplay/loot_tables/blocks/hemp_plant.json
 7948c7da7af2fb6aceb091bf79814138def6204e data/rpngameplay/loot_tables/blocks/woodsaw.json
